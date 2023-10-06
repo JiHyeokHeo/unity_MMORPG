@@ -28,20 +28,10 @@ public class TestCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 look = transform.TransformDirection(Vector3.forward);
-        Debug.DrawRay(transform.position + Vector3.up, look * 10, Color.red);
+        // Local <-> World <-> (Viewport <-> Screen)( È­¸é) 
 
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(transform.position + Vector3.up, look, 10);
+        //Debug.Log(Input.mousePosition); // ½ºÅ©¸° ÁÂÇ¥
 
-        foreach(RaycastHit hit in hits)
-        {
-            Debug.Log($"RayCast! {hit.collider.gameObject.name}");
-        }
-
-        //if(Physics.Raycast(transform.position + Vector3.up, look, out hit, 10))
-        //{
-        //    Debug.Log($"RayCast! {hit.collider.gameObject.name}");
-        //}
+        Debug.Log(Camera.main.ScreenToViewportPoint(Input.mousePosition)); // ºäÆ÷Æ®
     }
 }
