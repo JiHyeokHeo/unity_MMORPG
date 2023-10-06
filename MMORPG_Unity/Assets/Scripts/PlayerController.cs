@@ -2,24 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Tank
-{
-    // 다양한 정보
-    public float speed = 10.0f;
-    Player player; // 포함 관계 Nested(중첩된) Prefab(Pre-Fabrication)
-}
-
-class FastTank : Tank
-{
-
-}
-
-class Player
-{
-
-}
-
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
@@ -29,8 +11,6 @@ public class PlayerController : MonoBehaviour
     {
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
-
-        
     }
 
     void Update()
