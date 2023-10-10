@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction += OnMouseClicked;
     }
 
-    float wait_run_ratio = 0;
-
     public enum PlayerState
     {
         Die,
@@ -46,18 +44,16 @@ public class PlayerController : MonoBehaviour
         }
 
         // 局聪皋捞记 贸府
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10.0f * Time.deltaTime);
-        Animator anim = GetComponent<Animator>();
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        Animator ani = GetComponent<Animator>();
+
+        ani.SetFloat("speed", _speed);
     }
 
     void UpdateIdle()
     {
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 0, 10.0f * Time.deltaTime);
-        Animator anim = GetComponent<Animator>();
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        Animator ani = GetComponent<Animator>();
+
+        ani.SetFloat("speed", 0);
     }
 
     void Update()
