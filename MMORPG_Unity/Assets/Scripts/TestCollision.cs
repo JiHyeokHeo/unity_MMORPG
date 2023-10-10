@@ -40,8 +40,14 @@ public class TestCollision : MonoBehaviour
            
             Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
+            // 비트 연산자 (유니티 편하게 만들어 놓은 방법)
+            LayerMask mask = LayerMask.GetMask("Monster") | LayerMask.GetMask("Wall");
+
+            // 비트 연산자
+            //int mask = (1 << 6) | (1 << 7);
+
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 100.0f))
+            if(Physics.Raycast(ray, out hit, 100.0f, mask))
             {
                 Debug.Log($"Raycast Camera @ {hit.collider.gameObject.name}");
             }
