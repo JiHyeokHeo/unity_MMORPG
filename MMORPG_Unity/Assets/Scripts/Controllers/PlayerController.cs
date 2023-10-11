@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
         ani.SetFloat("speed", _speed);
     }
 
+    void OnRunEvent()
+    {
+        Debug.Log("¶Ñ¹÷");
+    }
+
     void UpdateIdle()
     {
         Animator ani = GetComponent<Animator>();
