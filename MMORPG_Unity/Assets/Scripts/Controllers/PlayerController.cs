@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void OnRunEvent()
     {
-        Debug.Log("¶Ñ¹÷");
+        //Debug.Log("¶Ñ¹÷");
     }
 
     void UpdateIdle()
@@ -93,6 +93,6 @@ public class PlayerController : MonoBehaviour
             //Debug.Log($"Raycast Camera @ {hit.collider.gameObject.name}");
         }
 
-        Debug.Log("OnMouseClicked");
+        //Debug.Log("OnMouseClicked");
     }
 }
