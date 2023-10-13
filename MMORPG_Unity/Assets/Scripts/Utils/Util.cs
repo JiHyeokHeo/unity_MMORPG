@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Util
 {
+    public static GameObject FindChild(GameObject obj, string name = null, bool recursive = false)
+    {
+        Transform transform = FindChild<Transform>(obj, name, recursive);
+        if (transform == null)
+            return null;
+
+        return transform.gameObject;
+    }
+
     public static T FindChild<T>(GameObject obj, string name = null, bool recursive = false) where T : UnityEngine.Object
     {
         if (obj == null)
