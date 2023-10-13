@@ -45,11 +45,11 @@ public class UI_Button : UI_PopUp
 
         {
             GameObject obj = GetButton((int)Buttons.PointButton).gameObject;
-            AddUIEvent(obj, OnButtonClicked);
+            BindEvent(obj, OnButtonClicked);
         }
         {
             GameObject obj = GetImage((int)Images.ItemIcon).gameObject;
-            AddUIEvent(obj, (PointerEventData data) => { obj.gameObject.transform.position = data.position; }, Define.UIEvent.Drag);
+            BindEvent(obj, (PointerEventData data) => { obj.gameObject.transform.position = data.position; }, Define.UIEvent.Drag);
         }
     }
 
