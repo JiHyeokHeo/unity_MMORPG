@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_PopUp
 {
     enum Buttons
     {
@@ -36,17 +36,23 @@ public class UI_Button : UI_Base
         Bind<GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
 
-        GetText((int)Texts.ScoreText).text = "Bind Test";
-
-        GameObject obj = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(obj, (PointerEventData data) => { obj.gameObject.transform.position = data.position; }, Define.UIEvent.Drag);
+        {
+            GameObject obj = GetButton((int)Buttons.PointButton).gameObject;
+            AddUIEvent(obj, OnButtonClicked);
+        }
+        {
+            GameObject obj = GetImage((int)Images.ItemIcon).gameObject;
+            AddUIEvent(obj, (PointerEventData data) => { obj.gameObject.transform.position = data.position; }, Define.UIEvent.Drag);
+        }
     }
+
 
     int _score = 0;
 
-    public void OnButtonClicked()
+    public void OnButtonClicked(PointerEventData data)
     {
         _score++;
+        GetText((int)Texts.ScoreText).text = $"Score: {_score} ";
     }
 
 }
