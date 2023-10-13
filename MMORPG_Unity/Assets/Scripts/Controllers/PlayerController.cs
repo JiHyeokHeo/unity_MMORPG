@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         // TEMP
         Managers.UI.ShowPopUpUI<UI_Button>();
 
-        Managers.UI.ClosePopUpUI();
+        //Managers.UI.ClosePopUpUI();
     }
 
     public enum PlayerState
