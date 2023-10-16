@@ -12,6 +12,13 @@ public class Define
         None,
     }
 
+    public enum Sound
+    {
+        Bgm,
+        Effect,
+        MaxCount,
+    }
+
     public enum UIEvent
     {
         Click,

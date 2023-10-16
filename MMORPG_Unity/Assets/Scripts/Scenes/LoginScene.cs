@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoginScene : BaseScene
 {
-    protected virtual void Init()
+    protected override void Init()
     {
         base.Init();
 
