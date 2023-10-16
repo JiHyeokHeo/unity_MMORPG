@@ -29,7 +29,6 @@ public class SoundManager
 
             _audioSources[(int)Define.Sound.Bgm].loop = true;
         }
-
     }
 
     public void Clear()
