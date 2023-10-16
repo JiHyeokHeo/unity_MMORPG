@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    Coroutine co;
+
     protected override void Init()
     {
         base.Init();
 
         SceneType = Define.Scene.Game;
+ 
+        Managers.UI.ShowSceneUI<UI_Inven>();
 
+        co = StartCoroutine("CoExplodeAfterSecond", 4.0f);
+        StartCoroutine("CoStopExplode", 2.0f);
+    }
 
+    IEnumerator CoStopExplode(float seconds)
+    {
+        Debug.Log("Stop Enter");
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("Stop Execute!!");
+        if(co != null)
+        {
+            StopCoroutine(co);
+            co = null;
+        }
+    }
 
-        for (int i = 0; i < 5; i++)
-            Managers.Resource.Instantiate("UnityChan");
-        //Managers.UI.ShowSceneUI<UI_Inven>();
-        //Managers.UI.ShowPopUpUI<UI_Button>();
-        //Managers.UI.MakeSubItem<UI_Inven_Item>();
+    IEnumerator CoExplodeAfterSecond(float seconds)
+    {
+        Debug.Log("Explode Enter");
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("Explode Execute!!");
+        co = null;
     }
 
     public override void Clear()
