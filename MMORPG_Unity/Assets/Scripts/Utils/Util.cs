@@ -9,6 +9,7 @@ public class Util
         T component = obj.GetComponent<T>();
         if (component == null)
             component = obj.AddComponent<T>();
+        
         return component;
     }
 

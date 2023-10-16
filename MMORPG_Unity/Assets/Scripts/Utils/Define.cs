@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Define
 {
+    public enum Scene
+    {
+        Login,
+        Lobby,
+        Game,
+        None,
+    }
+
     public enum UIEvent
     {
         Click,
@@ -20,5 +28,4 @@ public class Define
     {
         QuarterView,
     }
-
 }

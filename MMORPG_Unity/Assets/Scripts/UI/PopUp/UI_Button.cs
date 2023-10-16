@@ -44,12 +44,12 @@ public class UI_Button : UI_PopUp
         Bind<Image>(typeof(Images));
 
         {
-            GameObject obj = GetButton((int)Buttons.PointButton).gameObject;
-            BindEvent(obj, OnButtonClicked);
+            GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
+            //BindEvent(obj, OnButtonClicked);
         }
         {
             GameObject obj = GetImage((int)Images.ItemIcon).gameObject;
-            BindEvent(obj, (PointerEventData data) => { obj.gameObject.transform.position = data.position; }, Define.UIEvent.Drag);
+            BindEvent(obj, MoveTransform, Define.UIEvent.Drag);
         }
     }
 
@@ -57,8 +57,14 @@ public class UI_Button : UI_PopUp
 
     public void OnButtonClicked(PointerEventData data)
     {
+        // 기능 구현
         _score++;
         GetText((int)Texts.ScoreText).text = $"Score: {_score} ";
+    }
+
+    public void MoveTransform(PointerEventData data)
+    {
+        gameObject.transform.position = data.position;
     }
 
 }

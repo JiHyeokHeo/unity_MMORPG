@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _destPos;
     
+   
     void Start()
     {
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        // TEMP
-        Managers.UI.ShowSceneUI<UI_Inven>();
+
     }
 
     public enum PlayerState
