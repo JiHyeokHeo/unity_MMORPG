@@ -18,11 +18,11 @@ public class Stat : MonoBehaviour
     protected float _speed;
 
     public int Level { get { return _level; } set { _level = value; } }
-    public int Hp { get { return _level; } set { _hp = value; } }
-    public int MaxHp { get { return _level; } set { _maxHp = value; } }
-    public int Attack { get { return _level; } set { _attack = value; } }
-    public int Defence { get { return _level; } set { _defence = value; } }
-    public float MoveSpeed { get { return _level; } set { _speed = value; } }
+    public int Hp { get { return _hp; } set { _hp = value; } }
+    public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
+    public int Attack { get { return _attack; } set { _attack = value; } }
+    public int Defence { get { return _defence; } set { _defence = value; } }
+    public float MoveSpeed { get { return _speed; } set { _speed = value; } }
 
     private void Start()
     {

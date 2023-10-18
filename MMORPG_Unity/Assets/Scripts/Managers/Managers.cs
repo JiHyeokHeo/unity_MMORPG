@@ -23,13 +23,11 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
 
-    // Start is called before the first frame update
     void Start()
     {
         Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
         _input.OnUpdate();
